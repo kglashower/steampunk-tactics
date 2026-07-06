@@ -1,0 +1,278 @@
+.battle {
+  gap: var(--space-3);
+}
+
+/* Battle takes over the viewport (rendered outside the app shell). */
+.battle--fullscreen {
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+  padding: calc(var(--safe-top) + var(--space-4)) var(--space-4)
+    calc(var(--safe-bottom) + var(--space-4));
+}
+
+.battle__where {
+  font-size: 0.82rem;
+  margin-top: -4px;
+}
+
+/* Combat feed (recent events) */
+.battle__feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-height: 84px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-soot-2);
+  border: var(--border-iron);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  justify-content: flex-end;
+}
+.feed-line--info,
+.feed-line--move {
+  color: var(--color-text-dim);
+}
+.feed-line--action {
+  color: var(--color-brass-bright);
+  font-weight: 600;
+}
+.feed-line--damage {
+  color: var(--color-ember);
+}
+.feed-line--heal {
+  color: var(--color-teal-bright);
+}
+.feed-line--ko {
+  color: var(--color-ember);
+  font-weight: 700;
+}
+
+.reaction-chip {
+  font-size: 0.72rem;
+  color: var(--color-brass-bright);
+  border: 1px solid var(--color-brass);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+/* Stage wrapper holds the canvas + overlays (rotate, inspect). */
+.battle__stage-wrap {
+  position: relative;
+}
+.battle__rotate {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: flex;
+  gap: var(--space-1);
+}
+.battle__rotate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 8px;
+  background: rgba(26, 23, 20, 0.9);
+  color: var(--color-brass-bright);
+  border: 1px solid var(--color-brass);
+}
+.battle__inspect {
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+}
+
+/* Info boxes (ability + unit inspect) */
+.info-box {
+  background: var(--color-soot-3);
+  border: var(--border-brass);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.info-box--unit {
+  background: rgba(36, 31, 26, 0.96);
+  box-shadow: var(--shadow-panel);
+}
+.info-box__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.info-box__head strong {
+  color: var(--color-brass-bright);
+}
+.info-box__close {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--color-text-dim);
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 4px;
+}
+.info-box__desc {
+  font-size: 0.82rem;
+  margin: 0;
+}
+.info-box__stats {
+  font-size: 0.78rem;
+}
+.info-box__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.info-box__hint {
+  flex: 1;
+  font-size: 0.8rem;
+}
+.info-box__abils {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.info-box__buffs {
+  font-size: 0.76rem;
+}
+
+.battle__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.battle__phase {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-brass-bright);
+}
+.battle__phase--won {
+  color: var(--color-teal-bright);
+}
+.battle__phase--lost {
+  color: var(--color-ember);
+}
+
+.battle__forecast {
+  display: flex;
+  gap: 4px;
+}
+.pip {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #15110d;
+  opacity: 0.65;
+}
+.pip--player {
+  background: var(--color-teal-bright);
+}
+.pip--enemy {
+  background: var(--color-ember);
+}
+.pip--now {
+  opacity: 1;
+  outline: 2px solid var(--color-brass-bright);
+  outline-offset: 1px;
+}
+
+/* Pixi canvas host */
+.battle__stage {
+  width: 100%;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  border: var(--border-iron);
+  background: radial-gradient(120% 100% at 50% 0%, #2a2620 0%, #15110d 90%);
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.battle__hud {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.battle__hud--over {
+  align-items: center;
+  text-align: center;
+}
+.battle__rewards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+.battle__levelup {
+  color: var(--color-brass-bright);
+  font-weight: 700;
+}
+
+.battle__active {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+.battle__active-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.battle__flags {
+  font-size: 0.78rem;
+}
+
+.battle__abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.btn.is-selected {
+  outline: 2px solid var(--color-teal-bright);
+  outline-offset: 1px;
+}
+.cost {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.battle__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.battle__hint {
+  flex: 1;
+  font-size: 0.82rem;
+}
+
+/* shared team dot */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.dot--player {
+  background: var(--color-teal-bright);
+}
+.dot--enemy {
+  background: var(--color-ember);
+}

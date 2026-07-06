@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(npm test *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"root: HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"BattleDebugScreen module: HTTP %{http_code}\\\\n\" http://localhost:5173/src/ui/screens/BattleDebugScreen.tsx)",
+      "Bash(curl -s -o /dev/null -w \"dev server root: HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx vitest *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(sips -z 180 180 /private/tmp/claude-503/-Users-kyleglashower-steampunk-tactics/8adb7727-b99b-4249-a8ce-16ba65cc07f9/scratchpad/master.png --out public/apple-touch-icon.png)",
+      "Bash(sips -z 192 192 /private/tmp/claude-503/-Users-kyleglashower-steampunk-tactics/8adb7727-b99b-4249-a8ce-16ba65cc07f9/scratchpad/master.png --out public/pwa-192.png)",
+      "Bash(sips -z 512 512 /private/tmp/claude-503/-Users-kyleglashower-steampunk-tactics/8adb7727-b99b-4249-a8ce-16ba65cc07f9/scratchpad/master.png --out public/pwa-512.png)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(brew install *)",
+      "Bash(command -v gh)",
+      "Bash(git commit *)"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#1a1714"/>
+  <g fill="none" stroke="#d6a85f" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer gear -->
+    <circle cx="256" cy="256" r="120"/>
+    <g stroke-width="20">
+      <path d="M256 96V136"/>
+      <path d="M256 376V416"/>
+      <path d="M96 256H136"/>
+      <path d="M376 256H416"/>
+      <path d="M143 143L171 171"/>
+      <path d="M341 341L369 369"/>
+      <path d="M369 143L341 171"/>
+      <path d="M171 341L143 369"/>
+    </g>
+    <!-- Inner ring (oxidized teal) -->
+    <circle cx="256" cy="256" r="74" stroke="#3a8d80"/>
+    <circle cx="256" cy="256" r="30"/>
+    <!-- Crossed tools -->
+    <path d="M210 210L302 302" stroke="#3a8d80" stroke-width="10"/>
+    <path d="M302 210L210 302" stroke="#3a8d80" stroke-width="10"/>
+  </g>
+</svg>

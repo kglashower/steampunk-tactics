@@ -1,0 +1,23 @@
+.boot {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.boot__gear {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 6px solid var(--color-iron);
+  border-top-color: var(--color-brass-bright);
+  animation: spin 1.1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

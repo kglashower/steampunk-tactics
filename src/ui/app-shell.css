@@ -1,0 +1,176 @@
+.shell {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 720px;
+  margin: 0 auto;
+}
+/* Let the grid rows shrink to the viewport instead of their content's min-width. */
+.shell__header,
+.shell__main,
+.shell__nav {
+  min-width: 0;
+}
+
+/* --- Header --- */
+.shell__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: calc(var(--safe-top) + var(--space-3)) var(--space-3) var(--space-3);
+  background: linear-gradient(180deg, var(--color-soot-2), var(--color-soot));
+  border-bottom: var(--border-brass);
+}
+
+.shell__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+/* Header title/resources double as menu triggers. */
+.shell__title--btn,
+.shell__resources--btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  margin: -4px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+.shell__title--btn:active,
+.shell__resources--btn:active {
+  background: rgba(255, 255, 255, 0.05);
+}
+.shell__title > div {
+  min-width: 0;
+}
+.shell__title h1 {
+  font-size: 1.05rem;
+  color: var(--color-brass-bright);
+  white-space: nowrap;
+}
+.shell__crest {
+  color: var(--color-brass);
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+.shell__turn {
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.shell__resources {
+  display: flex;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+}
+.resource {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.resource__glyph {
+  color: var(--color-brass);
+  display: inline-flex;
+}
+.resource__amount {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* --- Main scroll area --- */
+.shell__main {
+  overflow-y: auto;
+  padding: var(--space-4);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Bottom nav --- */
+.shell__nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: linear-gradient(0deg, var(--color-soot-2), var(--color-soot));
+  border-top: var(--border-brass);
+  padding-bottom: var(--safe-bottom);
+}
+.navbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-2) 0 var(--space-3);
+  background: transparent;
+  border: none;
+  color: var(--color-text-dim);
+  font-size: 0.72rem;
+  min-width: 0;
+}
+.navbtn__label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.navbtn__glyph {
+  font-size: 1.3rem;
+  filter: grayscale(0.4);
+}
+.navbtn--active {
+  color: var(--color-brass-bright);
+}
+.navbtn--active .navbtn__glyph {
+  filter: none;
+}
+
+/* Transient success feedback, floating above the bottom nav. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--safe-bottom) + 76px);
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: min(88vw, 420px);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-soot-3);
+  border: var(--border-brass);
+  border-radius: 999px;
+  box-shadow: var(--shadow-panel);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  pointer-events: none;
+  animation: toast-in 180ms ease-out;
+}
+.toast__check {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-teal-bright);
+  color: #15110d;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
